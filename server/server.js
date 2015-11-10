@@ -10,8 +10,7 @@ app.engine('hbs', engines.handlebars);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'hbs');
 
-
-
+// Routes
 app.get('/wechat', function(req, res, next){
   res.send('<h1>Hello world</h1>');
 });
@@ -33,6 +32,5 @@ app.get('/wechat/chat/:chat', function(req, res, next){
   res.send('<h1>Hello ' + room + '</h1>');
 });
 
-
-
+// Export the server
 module.exports = server;
