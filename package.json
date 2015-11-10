@@ -14,5 +14,8 @@
   "license": "BSD-2-Clause",
   "bugs": {
     "url": "https://github.com/vokoshyv/weChat/issues"
+  },
+  "dependencies": {
+    "express": "~4.13.3"
   }
 }
