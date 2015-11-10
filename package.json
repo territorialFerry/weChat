@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "express": "~4.13.3",
-    "consolidate": "~0.13.1"
+    "consolidate": "~0.13.1",
+    "handlebars": "~4.0.4"
   }
 }
