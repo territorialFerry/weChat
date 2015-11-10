@@ -16,6 +16,7 @@
     "url": "https://github.com/vokoshyv/weChat/issues"
   },
   "dependencies": {
-    "express": "~4.13.3"
+    "express": "~4.13.3",
+    "consolidate": "~0.13.1"
   }
 }
