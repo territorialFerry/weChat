@@ -11,17 +11,25 @@
   </div>
 
   <div>
-    <h2>First time user? Please sign up!</h2>
+    <h2>Sign Up Here!</h2>
   </div>
 
-  <div>
-    <h3>Username</h3>
-    <input type="text" name="username">
-  </div>
+  <form action="http://localhost:3000/wechat/users/signin" method="post" id="validation">
 
   <div>
-    <h3>Password</h3>
-    <input type="text" name="password">
+      <h3>Username</h3>
+      <input type="text" name="username">
+    </div>
+
+    <div>
+      <h3>Password</h3>
+      <input type="text" name="password">
+    </div>
+    
+  </form>
+  
+  <div>
+    <button type="submit" form="validation" value="Submit">Submit</button>
   </div>
 
 </body>
