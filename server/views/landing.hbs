@@ -11,14 +11,24 @@
   </div>
 
   <div>
-    <h3>Username</h3>
-    <input type="text" name="username" value="">
+    <h2>Landing Page</h2>
   </div>
 
-  <div>
-    <h3>Password</h3>
-    <input type="text" name="password" value="">
-  </div>
+  <form action="http://localhost:3000/wechat/users/signin" method="post" id="validation">
+
+    <div>
+      <h3>Username</h3>
+      <input type="application/x-www-form-urlencoded" name="username">
+    </div>
+
+    <div>
+      <h3>Password</h3>
+      <input type="application/x-www-form-urlencoded" name="password">
+    </div>
+    
+  </form>
+
+  <button type="submit" form="validation" value="Submit">Submit</button>
 
 </body>
 
