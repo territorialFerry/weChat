@@ -18,6 +18,7 @@
   "dependencies": {
     "express": "~4.13.3",
     "consolidate": "~0.13.1",
-    "handlebars": "~4.0.4"
+    "handlebars": "~4.0.4",
+    "body-parser": "~1.14.1"
   }
 }
