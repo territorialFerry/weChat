@@ -4,6 +4,11 @@ module.exports = function(app, express){
   var userRouter = express.Router();
   var messageRouter = express.Router();
 
+  // landing page
+  app.get('/wechat', function(req, res, next){
+    res.send('blah');
+  })
+
   // designate routes
   app.use('/wechat/users', userRouter);
   app.use('/wechat/messages', messageRouter);
