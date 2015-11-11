@@ -6,7 +6,7 @@ module.exports = function(app, express){
 
   // landing page
   app.get('/wechat', function(req, res, next){
-    res.send('blah');
+    res.render('landing');
   })
 
   // designate routes
