@@ -6,7 +6,7 @@ var server = require('http').Server(app);
 // Handlebar requirement
 var engines = require('consolidate');
 
-// Application View Engine Setup
+// Handlebars Engine Setup
 app.engine('hbs', engines.handlebars);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'hbs');
