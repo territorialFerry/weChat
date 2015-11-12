@@ -8,6 +8,4 @@ var mysqlConnection = mysql.createConnection({
 
 mysqlConnection.connect();
 
-module.exports = {
-  mysqlDB: mysqlConnection, 
-}
+module.exports = mysqlConnection;
