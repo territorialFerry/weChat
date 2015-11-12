@@ -1,5 +1,6 @@
 var usersDB = require('./userModel.js');
 var password = require('password-hash-and-salt');
+var jwt = require('jwt-simple');
 var secret = 'interwebs';
 
 module.exports = {
