@@ -1,4 +1,5 @@
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
 
 module.exports = function(app, express){
 
@@ -6,9 +7,10 @@ module.exports = function(app, express){
   var userRouter = express.Router();
   var messageRouter = express.Router();
 
-  // for parsing incoming requests
+  // for parsing incoming requests and cookies
   app.use(bodyParser.urlencoded({extended: true}));
   app.use(bodyParser.json());
+  app.use(cookieParser());
 
   // landing page
   app.get('/wechat', function(req, res, next){
