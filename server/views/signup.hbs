@@ -14,7 +14,7 @@
     <h2>Sign Up Here!</h2>
   </div>
 
-  <form action="http://localhost:3000/wechat/users/signup" method="post" id="validation">
+  <form action="http://localhost:3000/wechat/users/signup" method="post" id="signup">
 
   <div>
       <h3>Username</h3>
@@ -25,13 +25,13 @@
     <div>
       <h3>Password</h3>
       <p>min 8 characters</p>
-      <input type="text" name="password" style="-webkit-text-security:disc" required>
+      <input type="text" name="password" autocomplete="off" style="-webkit-text-security:disc" required>
     </div>
     
   </form>
   
   <div>
-    <button type="submit" form="validation" value="Submit">Submit</button>
+    <button type="submit" form="signup" value="Submit">Submit</button>
   </div>
 
   <div>
