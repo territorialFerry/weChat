@@ -65,9 +65,9 @@ module.exports = {
     var userPW = req.body.password;
     
     // verification of username and password length
-    if (username.length < 8){
+    if (username.length < 3){
       res.render('signup', {
-        'usernameLength': 'Sorry, username must be at least 8 characters long', 
+        'usernameLength': 'Sorry, username must be at least 3 characters long', 
         'username': username
       });
       return;
