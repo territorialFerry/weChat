@@ -2,7 +2,7 @@ var mysql = require('mysql');
 
 var mysqlConnection = mysql.createConnection({
   host: 'localhost', 
-  database: 'wechatUsers', 
+  database: 'wechat', 
   user: 'root'
 })
 
