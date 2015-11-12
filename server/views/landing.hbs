@@ -18,18 +18,22 @@
 
     <div>
       <h3>Username</h3>
-      <input type="text" name="username">
+      <input type="text" name="username" value="{{username}}" required>
     </div>
 
     <div>
       <h3>Password</h3>
-      <input type="text" name="password" style="-webkit-text-security:disc">
+      <input type="text" name="password" autocomplete="off" style="-webkit-text-security:disc" required>
     </div>
 
   </form>
   
   <div>
     <button type="submit" form="validation" value="Submit">Submit</button>
+  </div>
+
+  <div>
+    <p>{{userNotValid}}{{passwordNotValid}}</p>
   </div>
 
   <div>
