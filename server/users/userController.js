@@ -58,13 +58,14 @@ module.exports = {
           'taken': 'Sorry, that username is already taken'
         });
       } else {
-        // hash password, insert into mysql database, and render rooms page
+        // hash password, insert into mysql database, set up
+        // cookieand render rooms page
         password(userPW).hash(function(error, hashedPW){
           if (error){throw error}
 
           usersDB.query("insert into userpassword (username, password) values ('" + username + "', '" + hashedPW + "');", function(err, rows, fields){
             if (err){throw err}
-            res.cookie('signedIn', 1234);
+            res.cookie('wechatToken', 1234);
             res.render('rooms');
           })
         })
