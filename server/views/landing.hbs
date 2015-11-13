@@ -18,12 +18,12 @@
 
     <div>
       <h3>Username</h3>
-      <input type="text" name="username">
+      <input type="text" name="username" value="{{username}}" required>
     </div>
 
     <div>
       <h3>Password</h3>
-      <input type="text" name="password">
+      <input type="text" name="password" autocomplete="off" style="-webkit-text-security:disc" required>
     </div>
 
   </form>
@@ -33,7 +33,11 @@
   </div>
 
   <div>
-    <form action="http://localhost:3000/wechat/users/signupPage">
+    <p>{{userNotValid}}{{passwordNotValid}}</p>
+  </div>
+
+  <div>
+    <form action="http://localhost:3000/wechat/users/signup">
         First time? <input type="submit" value="Sign Up!">
     </form>
   </div>
