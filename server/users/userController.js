@@ -1,4 +1,5 @@
 var usersDB = require('./userModel.js');
+var utils = require('../config/utils.js');
 var password = require('password-hash-and-salt');
 var jwt = require('jwt-simple');
 var secret = 'interwebs';
@@ -48,8 +49,10 @@ module.exports = {
               return;
           } else {
               console.log("You're in!!");
+              
               var token = jwt.encode(payload, secret);
               res.cookie('wechatToken', token);
+              utils.grabRoomData();
               res.render('rooms');
               return;
           }
@@ -105,9 +108,10 @@ module.exports = {
             if (err){throw err}
 
             var token = jwt.encode(payload, secret);
-
             res.cookie('wechatToken', token);
+            utils.grabRoomData();
             res.render('rooms');
+            return;
           })
         })
       }
