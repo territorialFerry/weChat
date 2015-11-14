@@ -1,5 +1,4 @@
 var messagesDB = require('../messages/messageModel.js');
-var io = require('../socketConnection.js');
 
 module.exports = {
   grabRoomsData: function(req, res, next){
@@ -38,7 +37,7 @@ module.exports = {
 
       // console.log("ROWS: ", rows);
       // var socket = io();
-      
+
       res.render('chat', {'messages': rows});
       return;
     })
