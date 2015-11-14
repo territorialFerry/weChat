@@ -1,5 +1,6 @@
 var jwt = require('jwt-simple');
 var secret = 'interwebs';
+var utils = require('./config/utils.js');
 
 var grabSocketDetails = function(socket, io){
   var preRoom = (socket.handshake.headers.referer.split('/'));
@@ -52,6 +53,7 @@ module.exports = {
 
     socket.on('chat', function(msg){
       console.log("MESSAGE: ", msg);
+      utils.addMessage(message.username, message.room, msg);
       io.to(message.room).emit('chat', {
         'username': message.username, 
         'details': msg
