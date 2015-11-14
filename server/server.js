@@ -2,6 +2,7 @@
 var express = require('express');
 var app = express();
 var server = require('http').Server(app);
+var socketController = require('./socketController.js');
 
 // Handlebar requirement
 var engines = require('consolidate');
@@ -15,10 +16,9 @@ app.set('view engine', 'hbs');
 var io = require('socket.io').listen(server);
 
 io.sockets.on('connection', function(socket){
-  console.log('blshigralbgkjarg');
-  socket.on('chat', function(msg){
-    console.log('message: ' + msg);
-  });
+  socketController.newJoin(socket, io);
+  socketController.userLeave(socket, io);
+  socketController.newMessage(socket, io);
 });
 
 // Middleware requirement
