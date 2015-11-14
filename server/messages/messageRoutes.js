@@ -1,6 +1,6 @@
 var messageController = require('./messageController.js');
 
 module.exports = function(app){
-  // app.post('/rooms', messageController.chatPage)
+  app.get('/', messageController.rooms);
   app.get('/:room', messageController.chat);
 }
