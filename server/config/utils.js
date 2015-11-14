@@ -43,7 +43,7 @@ module.exports = {
     })
   }, 
 
-  addMessage: function(req, res, next){
-
+  addMessage: function(username, room, message){
+    messagesDB.query("insert into messages (username, room, message) values ('" + username + "', '" + room + "', '" + message + "');");
   }
 }
