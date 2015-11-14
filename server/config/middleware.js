@@ -19,7 +19,7 @@ module.exports = function(app, express){
 
   // designate routes
   app.use('/wechat/users', userRouter);
-  app.use('/wechat/messages', messageRouter);
+  app.use('/wechat/rooms', messageRouter);
 
   // require routers into route files
   require('../users/userRoutes.js')(userRouter);
