@@ -52,9 +52,7 @@ module.exports = {
               
               var token = jwt.encode(payload, secret);
               res.cookie('wechatToken', token);
-              utils.grabRoomData();
-              res.render('rooms');
-              return;
+              utils.grabRoomsData(req, res, next);
           }
         })
       }
@@ -109,9 +107,7 @@ module.exports = {
 
             var token = jwt.encode(payload, secret);
             res.cookie('wechatToken', token);
-            utils.grabRoomData();
-            res.render('rooms');
-            return;
+            utils.grabRoomsData(req, res, next);
           })
         })
       }
