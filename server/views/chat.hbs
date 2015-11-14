@@ -5,25 +5,47 @@
   <title>WeChat</title>
 </head>  
 
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+  var socket = io();
+
+  var sendMessage = function(){
+    var message = $('#m').val();
+    if (message.length > 0){
+      socket.emit('chat', $('#m').val());
+      $('#m').val('');
+      console.log('message sent');
+    }
+    return false;
+  }
+
+  $(document).keyup(function(ev) {
+   if (ev.which === 13) {
+    sendMessage();
+   }
+}); 
+</script>
+
 <body>
   <div>
     <h1>WeChat</h1>
   </div>
 
   <div>
-    <h2>ChatRoom etc etc</h2>
+    <h2>ChatRoom</h2>
   </div>
 
   <div>
-    <ul>
-      <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo dolor et ducimus asperiores excepturi, non vel deserunt sint rem ipsam, minima illum quas, saepe reiciendis, voluptatibus nulla eius! Quas, ratione.</li>
-      <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime dolores animi sint dolor distinctio! Ex, ad officia reiciendis. Iure quam tempore placeat numquam nemo accusantium ipsa molestiae modi vel quos.</li>
-      <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias omnis accusamus adipisci dignissimos inventore quam sed mollitia modi qui vero, debitis, nam ipsa, odit ex est a eligendi aliquid sequi.</li>
+    <ul id="messages">
+      {{#each messages}}
+      <li>{{this.username}}: {{this.message}}</li>
+      {{/each}}
     </ul>
   </div>
 
   <div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, saepe rerum! Pariatur sunt numquam rerum, fugit libero repellat quaerat corrupti ipsum officia aut nisi aperiam ut adipisci nihil, repudiandae perspiciatis!</p>
+      <input id="m" autocomplete="off" /><button onclick="sendMessage()" required>Send</button>
   </div>
 
 </body>
