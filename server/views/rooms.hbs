@@ -11,15 +11,10 @@
   </div>
 
   <div>
-    <h2>Rooms</h2>
-  </div>
-
-  <div>
-    <ul>
-      <li>great</li>
-      <li>haha</li>
-      <li>best</li>
-    </ul>
+    <ul>Rooms</ul>
+    {{#each usersPerRoom}}
+      <li><a href="http://localhost:3000/wechat/rooms/{{@key}}">{{@key}} ({{this}} online)</a></li>
+    {{/each}}
   </div>
 
   <div>
