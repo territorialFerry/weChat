@@ -7,6 +7,10 @@ var utils = require('../config/utils.js');
 
 module.exports = {
 
+  rooms: function(req, res, next){
+    utils.grabRoomsData(req, res, next);
+  }, 
+
   chat: function(req, res, next){
 
     var room = req.params.room
