@@ -1,9 +1,33 @@
-module.exports = {
-  roomsPage: function(req, res, next){
-    res.send('take blah');
-  }, 
+var jwt = require('jwt-simple');
+var secret = 'interwebs';
+var messagesDB = require('./messageModel.js');
+var utils = require('../config/utils.js');
 
-  chatPage: function(req, res, next){
+
+
+module.exports = {
+
+  chat: function(req, res, next){
+
+    var room = req.params.room
+    var token = req.cookies.wechatToken;
+    
+    // console.log("ROOM: ", room);
+    // console.log("TOKEN: ", token);
+    
+    if (token === undefined){
+      // redirect user to signin page if token does not exist
+      res.redirect('http://localhost:3000/wechat/users/signin');
+      return;
+    }
+
+    var username = jwt.decode(token, secret).username;
+
+    // console.log('USERNAME: ', username);
+
+    utils.retrieveMessages(req, res, next, room);
+
+
 
   }, 
 
