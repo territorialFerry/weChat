@@ -1,0 +1,36 @@
+h1 {
+  color: white;
+  text-align: center;
+}
+
+h3 {
+  color: gray;
+  text-align: center;
+}
+
+input[type="text"], textarea {
+
+  background-color : white; 
+  color: black;
+
+}
+
+body {
+  color: white;
+  background-color: #78c0a8;
+}
+
+.message-in {
+  text-align: left;
+  color: black;
+}
+
+.message-out {
+  text-align: right;
+  color: black;
+}
+
+.user-action {
+  text-align: center;
+  color: gray;
+}

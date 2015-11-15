@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>WeChat</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="../styling/styles.css">
 </head>  
 
 <script src="http://vokoshyv.com:8081/socket.io/socket.io.js" type="text/javascript"></script>
@@ -28,49 +30,64 @@
   }); 
 
   socket.on('justJoined', function(username){
-    $('#messages').append($('<li>').text(username + ' just joined!'))
+    $('#messages').append($('<div class="list-group-item list-group-item-info message-in"></div>').text(username + ' joined the room'))
   })
 
   socket.on('justLeft', function(username){
-    $('#messages').append($('<li>').text(username + ' just left!'))
+    $('#messages').append($('<div class="list-group-item list-group-item-info user-action"></div>').text(username + ' left the room'))
   })
 
   socket.on('chat', function(message){
-    $('#messages').append($('<li>').text(message.username + ': ' + message.details));
+    $('#messages').append($('<div class="list-group-item list-group-item-info message-out"></div>').text(message.username + ': ' + message.details));
   })
 </script>
 
 <body>
-  <div>
+
+  <div class="col-lg-12 col-md-12">
     <h1>WeChat</h1>
   </div>
 
-  <div>
-    <h2>ChatRoom</h2>
-  </div>
+  <div class="col-md-4 col-sm-8 col-xs-8 col-md-offset-4 col-sm-offset-2 col-xs-offset-2">
+    
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-3 col-md-offset-6 col-sm-offset-6 col-xs-offset-6">
+        <form method="link" action="http://vokoshyv.com/wechat/rooms">
+        <input type="submit" class="btn btn-default" value="Rooms">
+        </form>
+      </div>
 
-  <div>
-    <form method="link" action="http://vokoshyv.com/wechat/rooms">
-    <input type="submit" value="Rooms">
-    </form>
-  </div>
+      <div class="col-md-2 col-sm-2 col-xs-2">
+        <form method="post" action="http://vokoshyv.com/wechat/users/logout">
+          <input type="submit" class="btn btn-default" value="Logout">
+        </form>
+      </div>
+    </div>
+    
+    <div>
+      <h2>ChatRoom</h2>
+    </div>
 
-  <div>
-    <form method="post" action="http://vokoshyv.com/wechat/users/logout">
-      <input type="submit" value="Logout">
-    </form>
-  </div>
+    <div class="col-md-12">
+      <input class="form-control" id="m" autocomplete="off" />
+    </div>
+<!--     <div class="col-md-3">
+      <button class="btn btn-default" onclick="sendMessage()" required>Send</button>
+    </div> -->
 
-  <div>
-    <ul id="messages">
-      {{#each messages}}
-      <li>{{this.username}}: {{this.message}}</li>
-      {{/each}}
-    </ul>
-  </div>
+    <div class="row">
+      <ul class="list-group" id="messages">
+        {{#each messages}}
+        <li>{{this.username}}: {{this.message}}</li>
+        {{/each}}
+        <div class="list-group-item list-group-item-info message-in"><p>message from someone else</p></div>
+        <div class="list-group-item list-group-item-info user-action"><p>user left</p></div>
+        <div class="list-group-item list-group-item-info user-action"><p>user joined</p></div>
+        <div class="list-group-item list-group-item-info message-out"><p>message from myself</p></div>
+      </ul>
+    </div>
 
-  <div>
-      <input id="m" autocomplete="off" /><button onclick="sendMessage()" required>Send</button>
+    
   </div>
 
 </body>
