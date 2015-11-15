@@ -50,6 +50,18 @@
   </div>
 
   <div>
+    <form method="link" action="http://localhost:3000/wechat/rooms">
+    <input type="submit" value="Rooms">
+    </form>
+  </div>
+
+  <div>
+    <form method="post" action="http://localhost:3000/wechat/users/logout">
+      <input type="submit" value="Logout">
+    </form>
+  </div>
+
+  <div>
     <ul id="messages">
       {{#each messages}}
       <li>{{this.username}}: {{this.message}}</li>
