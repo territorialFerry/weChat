@@ -11,7 +11,7 @@ module.exports = {
     var token = req.cookies.wechatToken;
     if (token === undefined){
       // redirect user to signin page if token does not exist
-      res.redirect('http://localhost:3000/wechat/users/signin');
+      res.redirect('http://vokoshyv.com:8081/wechat/users/signin');
       return;
     }
     utils.grabRoomsData(req, res, next);
@@ -24,7 +24,7 @@ module.exports = {
     
     if (token === undefined){
       // redirect user to signin page if token does not exist
-      res.redirect('http://localhost:3000/wechat/users/signin');
+      res.redirect('http://vokoshyv.com:8081/wechat/users/signin');
       return;
     }
 

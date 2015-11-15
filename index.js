@@ -1,5 +1,5 @@
 var server = require('./server/server.js');
 
-server.listen(3000, function(){
-  console.log('listening on 3000');
+server.listen(8081, function(){
+  console.log('listening on 8081');
 })
