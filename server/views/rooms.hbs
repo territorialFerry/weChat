@@ -13,7 +13,7 @@
   </div>
 
   <div>
-    <form method="post" action="http://vokoshyv.com:8081/wechat/users/logout">
+    <form method="post" action="http://vokoshyv.com/wechat/users/logout">
       <input type="submit" value="Logout">
     </form>
   </div>
@@ -21,7 +21,7 @@
   <div>
     <ul>Rooms</ul>
     {{#each usersPerRoom}}
-      <li><a href="http://vokoshyv.com:8081/wechat/rooms/{{@key}}">{{@key}} ({{this}} online)</a></li>
+      <li><a href="http://vokoshyv.com/wechat/rooms/{{@key}}">{{@key}} ({{this}} online)</a></li>
     {{/each}}
   </div>
 
