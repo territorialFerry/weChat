@@ -15,6 +15,12 @@ module.exports = {
     res.render('signup');
   }, 
 
+  logout: function(req, res, next){
+    console.log('DELETE ZE COOKIE');
+    res.clearCookie('wechatToken');
+    res.redirect('http://localhost:3000/wechat');
+  }, 
+
   checkAuth: function(req, res, next){
     // checking to see if users are allowed on a certain page
     var payload = req.body;
