@@ -18,7 +18,7 @@ module.exports = {
   logout: function(req, res, next){
     console.log('DELETE ZE COOKIE');
     res.clearCookie('wechatToken');
-    res.redirect('http://localhost:3000/wechat');
+    res.redirect('http://vokoshyv.com:8081/wechat');
   }, 
 
   checkAuth: function(req, res, next){
