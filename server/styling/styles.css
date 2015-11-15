@@ -3,6 +3,11 @@ h1 {
   text-align: center;
 }
 
+h3 {
+  color: gray;
+  text-align: center;
+}
+
 input[type="text"], textarea {
 
   background-color : white; 
