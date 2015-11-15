@@ -1,0 +1,16 @@
+h1 {
+  color: white;
+  text-align: center;
+}
+
+input[type="text"], textarea {
+
+  background-color : white; 
+  color: black;
+
+}
+
+body {
+  color: white;
+  background-color: #78c0a8;
+}
