@@ -19,7 +19,8 @@
   <div>
       <h3>Username</h3>
       <p>min 3 characters</p>
-      <input type="text" name="username" value="{{username}}" required>
+      <p>only letters and numbers</p>
+      <input type="text" name="username" value="{{username}}" required pattern="[a-zA-Z0-9]+" required>
     </div>
 
     <div>
