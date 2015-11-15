@@ -4,42 +4,58 @@
   <meta charset="UTF-8">
   <title>WeChat</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="../styling/styles.css">
 </head>  
 
 <body>
-  <div>
+
+  <div class="col-lg-12 col-md-12">
     <h1>WeChat</h1>
   </div>
 
-  <div>
-    <h2>Sign Up Here!</h2>
-  </div>
-
-  <form action="http://vokoshyv.com/wechat/users/signup" method="post" id="signup">
-
-  <div>
-      <h3>Username</h3>
-      <p>min 3 characters</p>
-      <p>only letters and numbers</p>
-      <input type="text" name="username" value="{{username}}" required pattern="[a-zA-Z0-9]+" required>
+  <div class="col-md-9 col-sm-11 col-md-offset-3 col-sm-offset-1">
+    
+    <div>
+      <h2>Sign Up Here!</h2>
     </div>
 
     <div>
-      <h3>Password</h3>
-      <p>min 8 characters</p>
-      <input type="text" name="password" autocomplete="off" style="-webkit-text-security:disc" required>
+      <p>Username must be at least three characters and alphanumeric.</p>
+      <p>Password must be at least 8 characters</p>
     </div>
     
-  </form>
-  
-  <div>
-    <button type="submit" form="signup" value="Submit">Submit</button>
-  </div>
+    <div>
+      
+      <form class="form-inline" action="http://vokoshyv.com/wechat/users/signup" method="post" id="signup">
 
-  <div>
-    <p>{{taken}}{{usernameLength}}{{passwordLength}}</p>
-  </div>
+        <div class="form-group">
+          <!-- <h3>Username</h3>
+          <p>min 3 characters</p>
+          <p>only letters and numbers</p> -->
+          <label>Username</label>
+          <input class="form-control" type="text" name="username" value="{{username}}" required pattern="[a-zA-Z0-9]+" required>
+        </div>
 
+        <div class="form-group">
+<!--           <h3>Password</h3>
+          <p>min 8 characters</p> -->
+          <label>Password</label>
+          <input class="form-control" type="text" name="password" autocomplete="off" style="-webkit-text-security:disc" required>
+        </div>
+        
+      
+        <div class="form-group">
+          <button type="submit" class="btn btn-default" form="signup" value="Submit">Submit</button>
+        </div>
+
+      </form>
+
+      <div>
+        <p>{{taken}}{{usernameLength}}{{passwordLength}}</p>
+      </div>
+
+    </div>
+  </div>
 </body>
 
 </html>
