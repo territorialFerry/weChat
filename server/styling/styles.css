@@ -19,3 +19,18 @@ body {
   color: white;
   background-color: #78c0a8;
 }
+
+.message-in {
+  text-align: left;
+  color: black;
+}
+
+.message-out {
+  text-align: right;
+  color: black;
+}
+
+.user-action {
+  text-align: center;
+  color: gray;
+}
