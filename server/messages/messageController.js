@@ -7,13 +7,20 @@ var utils = require('../config/utils.js');
 
 module.exports = {
 
+  rooms: function(req, res, next){
+    var token = req.cookies.wechatToken;
+    if (token === undefined){
+      // redirect user to signin page if token does not exist
+      res.redirect('http://localhost:3000/wechat/users/signin');
+      return;
+    }
+    utils.grabRoomsData(req, res, next);
+  }, 
+
   chat: function(req, res, next){
 
     var room = req.params.room
     var token = req.cookies.wechatToken;
-    
-    // console.log("ROOM: ", room);
-    // console.log("TOKEN: ", token);
     
     if (token === undefined){
       // redirect user to signin page if token does not exist

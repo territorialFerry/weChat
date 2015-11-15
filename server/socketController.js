@@ -2,6 +2,7 @@ var jwt = require('jwt-simple');
 var secret = 'interwebs';
 var utils = require('./config/utils.js');
 
+// helper function that grabs socket room and username details
 var grabSocketDetails = function(socket, io){
   var preRoom = (socket.handshake.headers.referer.split('/'));
   var room = preRoom[preRoom.length-1];
@@ -26,10 +27,6 @@ module.exports = {
   newJoin: function(socket, io){
     var message = grabSocketDetails(socket, io);
 
-    console.log('USERNAME', message.username);
-    console.log('ROOM', message.room);
-    
-
     socket.join(message.room);
     io.to(message.room).emit('justJoined', message.username);
   },
@@ -37,8 +34,6 @@ module.exports = {
   userLeave: function(socket, io){
     var message = grabSocketDetails(socket, io);
 
-    console.log('USERNAME', message.username);
-    console.log('ROOM', message.room);
     socket.on('disconnect', function(){
       console.log('user left');
       io.to(message.room).emit('justLeft', message.username);
@@ -47,9 +42,6 @@ module.exports = {
 
   newMessage: function(socket,io){
     var message = grabSocketDetails(socket, io);
-
-    console.log('USERNAME', message.username);
-    console.log('ROOM', message.room);
 
     socket.on('chat', function(msg){
       console.log("MESSAGE: ", msg);

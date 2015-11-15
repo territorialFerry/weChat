@@ -23,8 +23,6 @@ module.exports = {
         usersPerRoom[key] = Object.keys(roomRef[key]).length;
       })
 
-      console.log("USERSPERROOM: ", usersPerRoom);
-
       res.render('rooms', {'usersPerRoom': usersPerRoom});
       return;
 
@@ -35,15 +33,21 @@ module.exports = {
     messagesDB.query("select * from messages where room = '" + room + "';", function(err, rows, fields){
       if (err){console.log(error)};
 
-      // console.log("ROWS: ", rows);
-      // var socket = io();
-
       res.render('chat', {'messages': rows});
       return;
     })
   }, 
 
   addMessage: function(username, room, message){
-    messagesDB.query("insert into messages (username, room, message) values ('" + username + "', '" + room + "', '" + message + "');");
+    var msgInsert = "";
+
+    for (var i = 0; i < message.length ; i++){
+      if (message[i] === "'"){
+        msgInsert += "\\'";
+      } else {
+        msgInsert += message[i];
+      }
+    }
+    messagesDB.query("insert into messages (username, room, message) values ('" + username + "', '" + room + "', '" + msgInsert + "');");
   }
 }
