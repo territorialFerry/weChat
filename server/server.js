@@ -1,7 +1,9 @@
 // Node requirements
 var express = require('express');
 var app = express();
+
 var server = require('http').Server(app);
+
 var socketController = require('./socketController.js');
 
 // Handlebar requirement
@@ -13,7 +15,7 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'hbs');
 
 // Socket Connection
-var io = require('socket.io').listen(server);
+var io = require('socket.io')(server, {origins:'vokoshyv.com:* http://vokoshyv.com:* http://www.vokoshyv.com:*'});
 
 io.sockets.on('connection', function(socket){
   socketController.newJoin(socket, io);
