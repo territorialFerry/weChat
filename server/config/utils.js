@@ -29,11 +29,14 @@ module.exports = {
     })
   }, 
 
-  retrieveMessages: function(req, res, next, room){
+  retrieveMessages: function(req, res, next, room, username){
     messagesDB.query("select * from messages where room = '" + room + "';", function(err, rows, fields){
       if (err){console.log(error)};
 
-      res.render('chat', {'messages': rows});
+      res.render('chat', {
+        'messages': rows, 
+        'currentUser': username
+      });
       return;
     })
   }, 

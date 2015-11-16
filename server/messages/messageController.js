@@ -32,7 +32,7 @@ module.exports = {
 
     // console.log('USERNAME: ', username);
 
-    utils.retrieveMessages(req, res, next, room);
+    utils.retrieveMessages(req, res, next, room, username);
 
 
 
