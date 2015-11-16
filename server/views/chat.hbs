@@ -29,17 +29,34 @@
     }
   }); 
 
+  var removeTopMessage = function(){
+    while ($("#chat-input").position().top + 150 > $(window).height()){
+      $("#messages div:first-child").remove();
+    }
+  }
+
   socket.on('justJoined', function(username){
-    $('#messages').append($('<div class="list-group-item list-group-item-info message-in"></div>').text(username + ' joined the room'))
+    removeTopMessage();
+    $('#messages').append($('<div class="list-group-item list-group-item-info user-action"></div>').text(username + ' joined the room'))
   })
 
   socket.on('justLeft', function(username){
+    removeTopMessage();
     $('#messages').append($('<div class="list-group-item list-group-item-info user-action"></div>').text(username + ' left the room'))
   })
 
   socket.on('chat', function(message){
-    $('#messages').append($('<div class="list-group-item list-group-item-info message-out"></div>').text(message.username + ': ' + message.details));
+    console.log('{{username}}');
+
+    if (message.username !== '{{username}}'){
+      $('#messages').append($('<div class="list-group-item list-group-item-info message-in"></div>').text(message.username + ': ' + message.details));
+
+    } else {
+      $('#messages').append($('<div class="list-group-item list-group-item-info message-out"></div>').text(message.details));
+    }
+    removeTopMessage();
   })
+
 </script>
 
 <body>
@@ -64,35 +81,42 @@
       </div>
     </div>
     
-    <div>
-      <h2>ChatRoom</h2>
+    <div class="row">
+
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <h4>{{room}}</h4>
+      </div>
+
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <h4>welcome, {{username}}</h4>
+      </div>
+
     </div>
 
-    <div class="col-md-12">
+    <div class="row">
+      <ul class="list-group chat-box" id="messages">
+        {{#each messages}}
+
+          {{#if this.local}}
+            <div class="list-group-item list-group-item-info message-out">{{this.message}}</div>
+          {{else}}
+            <div class="list-group-item list-group-item-info message-in">{{this.username}}: {{this.message}}</div>
+          {{/if}}
+          
+        {{/each}}
+<!--         <div class="list-group-item list-group-item-info message-in"><p>message from someone else</p></div>
+        <div class="list-group-item list-group-item-info user-action"><p>user left</p></div>
+        <div class="list-group-item list-group-item-info user-action"><p>user joined</p></div>
+        <div class="list-group-item list-group-item-info message-out"><p>message from myself</p></div> -->
+      </ul>
+    </div>
+    
+    <div id="chat-input" class="col-md-12">
       <input class="form-control" id="m" autocomplete="off" />
     </div>
 <!--     <div class="col-md-3">
       <button class="btn btn-default" onclick="sendMessage()" required>Send</button>
     </div> -->
-
-    <div class="row">
-      <ul class="list-group" id="messages">
-        {{#each messages}}
-
-          {{#if messages.username === currentUser}}
-            <div class="list-group-item list-group-item-info message-out"><p>{{this.message}}</p></div>
-          {{#else}}
-            <div class="list-group-item list-group-item-info message-in"><p>{{this.username}}: {{this.message}}</p></div>
-          {{/if}}
-          
-        {{/each}}
-        <div class="list-group-item list-group-item-info message-in"><p>message from someone else</p></div>
-        <div class="list-group-item list-group-item-info user-action"><p>user left</p></div>
-        <div class="list-group-item list-group-item-info user-action"><p>user joined</p></div>
-        <div class="list-group-item list-group-item-info message-out"><p>message from myself</p></div>
-      </ul>
-    </div>
-
     
   </div>
 
