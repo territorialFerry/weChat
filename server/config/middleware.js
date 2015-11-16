@@ -17,6 +17,14 @@ module.exports = function(app, express){
     res.render('landing');
   })
 
+  // for static files
+  // app.use('/static', express.static(__dirname + '../server'));
+
+  // styling
+  app.get('/wechat/styles.css', function(req, res, next){
+    res.sendFile(__dirname + '/../styling/styles.css', {'root': '/..'});
+  });
+
   // designate routes
   app.use('/wechat/users', userRouter);
   app.use('/wechat/rooms', messageRouter);
