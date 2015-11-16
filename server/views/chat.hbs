@@ -78,7 +78,13 @@
     <div class="row">
       <ul class="list-group" id="messages">
         {{#each messages}}
-        <li>{{this.username}}: {{this.message}}</li>
+
+          {{#if messages.username === currentUser}}
+            <div class="list-group-item list-group-item-info message-out"><p>{{this.message}}</p></div>
+          {{#else}}
+            <div class="list-group-item list-group-item-info message-in"><p>{{this.username}}: {{this.message}}</p></div>
+          {{/if}}
+          
         {{/each}}
         <div class="list-group-item list-group-item-info message-in"><p>message from someone else</p></div>
         <div class="list-group-item list-group-item-info user-action"><p>user left</p></div>
