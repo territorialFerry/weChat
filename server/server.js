@@ -15,7 +15,7 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'hbs');
 
 // Socket Connection
-var io = require('socket.io')(server, {origins:'vokoshyv.com:* http://vokoshyv.com:* http://www.vokoshyv.com:*'});
+var io = require('socket.io')(server, {origins:'localhost:3000:* http://localhost:3000:* http://www.localhost:3000:*'});
 
 io.sockets.on('connection', function(socket){
   socketController.newJoin(socket, io);

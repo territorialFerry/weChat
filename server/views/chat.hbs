@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <title>WeChat</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="http://vokoshyv.com/wechat/styles.css">
+  <link rel="stylesheet" type="text/css" href="http://localhost:3000/wechat/styles.css">
 </head>  
 
-<script src="http://vokoshyv.com:8081/socket.io/socket.io.js" type="text/javascript"></script>
+<script src="http://localhost:3000/socket.io/socket.io.js" type="text/javascript"></script>
 <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 <script>
-  var socket = io.connect("vokoshyv.com:8081");
+  var socket = io.connect("localhost:3000");
 
   var sendMessage = function(){
     var message = $('#m').val();
@@ -69,13 +69,13 @@
     
     <div class="row">
       <div class="col-md-3 col-sm-3 col-xs-3 col-md-offset-6 col-sm-offset-6 col-xs-offset-6">
-        <form method="link" action="http://vokoshyv.com/wechat/rooms">
+        <form method="link" action="http://localhost:3000/wechat/rooms">
         <input type="submit" class="btn btn-default" value="Rooms">
         </form>
       </div>
 
       <div class="col-md-2 col-sm-2 col-xs-2">
-        <form method="post" action="http://vokoshyv.com/wechat/users/logout">
+        <form method="post" action="http://localhost:3000/wechat/users/logout">
           <input type="submit" class="btn btn-default" value="Logout">
         </form>
       </div>
