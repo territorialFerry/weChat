@@ -3,47 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <title>WeChat</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="http://localhost:3000/wechat/styles.css">
 </head>  
 
 <body>
-  <div>
+
+  <div class="col-lg-12 col-md-12">
     <h1>WeChat</h1>
   </div>
 
-  <div>
-    <h2>Landing Page</h2>
-  </div>
-
-  <form action="http://localhost:3000/wechat/users/signin" method="post" id="validation">
-
-    <div>
-      <h3>Username</h3>
-      <input type="text" name="username" value="{{username}}" required>
-    </div>
-
-    <div>
-      <h3>Password</h3>
-      <input type="text" name="password" autocomplete="off" style="-webkit-text-security:disc" required>
-    </div>
-
-  </form>
+  <div class="col-md-9 col-sm-11 col-md-offset-3 col-sm-offset-1">
   
+
   <div>
-    <button type="submit" form="validation" value="Submit">Submit</button>
+    <h2>Login</h2>
   </div>
 
   <div>
-    <p>{{userNotValid}}{{passwordNotValid}}</p>
-  </div>
+    
+    <form class="form-inline" action="http://localhost:3000/wechat/users/signin" method="post" id="validation">
+      
 
-  <div>
-    <form action="http://localhost:3000/wechat/users/signup">
-        First time? <input type="submit" value="Sign Up!">
+      <div class="form-group">
+          <label>Username</label>
+            <input type="text" class="form-control" name="username" value="{{username}}" required>
+      </div>
+
+      <div class="form-group">
+          <label>Password</label>
+            <input type="text" class="form-control" name="password" autocomplete="off" style="-webkit-text-security:disc" required>
+      </div>
+
+      <div class="form-group">
+          <button type="submit" class="btn btn-default" form="validation" value="Submit">Submit</button>
+      </div>
+
     </form>
   </div>
+    
+    <div>
+      <p>{{userNotValid}}{{passwordNotValid}}</p>
+    </div>
 
-  <div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, saepe rerum! Pariatur sunt numquam rerum, fugit libero repellat quaerat corrupti ipsum officia aut nisi aperiam ut adipisci nihil, repudiandae perspiciatis!</p>
+
+    <div>
+      <form class="form-inline" action="http://localhost:3000/wechat/users/signup">
+          First time? <button class="btn btn-default btn-xs" type="submit" value="Sign Up!">Sign Up!</button>
+      </form>
+    </div>
+    
   </div>
 
 </body>

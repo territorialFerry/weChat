@@ -29,11 +29,23 @@ module.exports = {
     })
   }, 
 
-  retrieveMessages: function(req, res, next, room){
+  retrieveMessages: function(req, res, next, room, username){
     messagesDB.query("select * from messages where room = '" + room + "';", function(err, rows, fields){
       if (err){console.log(error)};
 
-      res.render('chat', {'messages': rows});
+      rows.forEach(function(row){
+        if (row.username === username){
+          row.local = true;
+        } else {
+          row.local = false;
+        }
+      });
+
+      res.render('chat', {
+        'messages': rows, 
+	'room': room, 
+	'username': username
+      });
       return;
     })
   }, 
