@@ -33,9 +33,18 @@ module.exports = {
     messagesDB.query("select * from messages where room = '" + room + "';", function(err, rows, fields){
       if (err){console.log(error)};
 
+      rows.forEach(function(row){
+        if (row.username === username){
+          row.local = true;
+        } else {
+          row.local = false;
+        }
+      });
+
       res.render('chat', {
         'messages': rows, 
-        'currentUser': username
+	'room': room, 
+	'username': username
       });
       return;
     })
